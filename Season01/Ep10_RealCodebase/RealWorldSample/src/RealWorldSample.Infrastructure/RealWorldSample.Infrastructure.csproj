@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Infrastructure = implementations of Core's interfaces (storage, email, external APIs). -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- Project reference: Infrastructure can use types from Core (like a local "file:../core" npm dependency). -->
+  <ItemGroup>
+    <ProjectReference Include="..\RealWorldSample.Core\RealWorldSample.Core.csproj" />
+  </ItemGroup>
+
+</Project>

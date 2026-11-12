@@ -1,0 +1,15 @@
+namespace RealWorldSample.Core.Options;
+
+/// <summary>
+/// Strongly typed settings, bound from the "Todo" section of appsettings.json:
+///   "Todo": { "MaxTitleLength": 100, "MaxOpenItems": 10, "SeedSampleData": true }
+/// Classes like this are injected as IOptions&lt;TodoOptions&gt;.
+/// </summary>
+public class TodoOptions
+{
+    public const string SectionName = "Todo";
+
+    public int MaxTitleLength { get; set; } = 100;
+    public int MaxOpenItems { get; set; } = 10;   // NEW: limit of not-done todos
+    public bool SeedSampleData { get; set; }
+}

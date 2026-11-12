@@ -1,0 +1,34 @@
+# Send these requests from VS Code (REST Client extension), Rider or Visual Studio,
+# or copy them into curl. Start the API first: dotnet run --project src/RealWorldSample.Api
+
+@baseUrl = http://localhost:5080
+
+### Health check (minimal API endpoint)
+GET {{baseUrl}}/health
+
+### List todos
+GET {{baseUrl}}/api/todos
+
+### Get one
+GET {{baseUrl}}/api/todos/1
+
+### Create
+POST {{baseUrl}}/api/todos
+Content-Type: application/json
+
+{ "title": "Write a unit test" }
+
+### Create without a title, or with a blank one (400 from [Required] + [ApiController])
+POST {{baseUrl}}/api/todos
+Content-Type: application/json
+
+{ "title": "   " }
+
+### Create with a title longer than Todo:MaxTitleLength (400 from TodoService)
+POST {{baseUrl}}/api/todos
+Content-Type: application/json
+
+{ "title": "This title is far too long for the configured limit of one hundred characters, so the service rejects it" }
+
+### Complete
+POST {{baseUrl}}/api/todos/1/complete
